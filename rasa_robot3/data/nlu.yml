@@ -1,0 +1,58 @@
+version: "2.0"
+
+nlu:
+- intent: affirm
+  examples: |
+    - 是的
+    - 对的
+    - 是
+    - 对
+    - 正确
+
+- intent: deny
+  examples: |
+    - 不是
+    - 否
+    - 不对
+    - 错误
+    - 错了
+
+- intent: pause
+  examples: |
+    - 等一下
+    - 稍等
+
+- intent: continue
+  examples: |
+    - 继续
+    - 我回来了
+
+- intent: huangup
+  examples: |
+    - 不用了
+    - 不需要
+    - 没有
+
+- intent: repeat
+  examples: |
+    - 再说一遍
+    - 没听清楚
+
+- intent: enter_number
+  examples: |
+    - [1](orderNumber)
+    - [2](orderNumber)
+    - [3](orderNumber)
+    - [4](orderNumber)
+
+- regex: orderNumber
+  examples: |
+    - \d{1}
+
+- lookup: orderNumber
+  examples: |
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5

@@ -1,0 +1,33 @@
+version: "2.0"
+
+stories:
+- story: 客户键入数字
+  steps: 
+    - intent: enter_number
+    - action: action_handle_choose
+    - action: utter_to_ivr
+    # - action: action_resetSlot
+
+- story: 客户要求再说一遍
+  steps: 
+    - intent: repeat
+    - action: utter_to_ivr
+
+- story: 客户说等一下
+  steps: 
+    - intent: pause
+    - action: utter_ok
+    - intent: continue
+    - action: utter_to_ivr
+
+# - story: 该业务需要用户选择人工还是自助
+#   steps: 
+#     - intent: handle_business
+#     - action: business_form
+#     - active_loop: business_form
+#     - action: action_handle_businessAbountInsurance
+#     - action: utter_to_ivr
+#     - intent: enter_number
+#     - action: action_handle_choose
+#     - action: utter_to_ivr
+#     - action: action_restart

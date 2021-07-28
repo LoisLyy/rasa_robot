@@ -1,0 +1,99 @@
+version: "2.0"
+
+intents:
+  - handle_business
+  - unclear_insurance
+  - affirm
+  - deny
+  - pause
+  - continue
+  - enter_number
+
+entities:
+  - insurance
+  - business
+  - tag
+  - huashu
+  - otherBusiness
+  - orderNumber
+
+responses:
+  utter_ok:
+    - text: "huashu:好的,tag:voice"
+  utter_ask_insurance:
+    - text: "huashu:请问是车险{business}还是非车险{business}?,tag:voice" 
+  utter_ask_business:
+    - text: "huashu:您想要办理哪种{insurance}业务呢，报案、救援、保单查询、进度查询或者是退保呢?,tag:voice" 
+  utter_anything_else:
+    - text: "请问您还有别的问题需要查询的吗。您可以直接说出您要办理的业务，如{otherBusiness}等"
+  utter_default:
+    - text: "对不起，没听懂您在说什么？"
+  utter_inform_pause:
+    - text: "好的您说"
+  utter_inform_continue:
+    - text: "对话从之前的位置开始了"
+  utter_transfer:
+    - text: "为了提升服务体验，现在为您转接人工，请稍等"
+  utter_choose:
+    - text: "尊敬的客户，现在您可以通过自助渠道进行{business}。同意请按^1，转人工请按^2"
+  utter_choose_selfSupport:
+    - text: "{business}自助操作方式已通过短信方式发送到您的手机，请您注意查收。"
+  utter_choose_human:
+    - text: "正在为您转接人工，请稍等"
+  utter_to_ivr:
+    - text: "huashu:{huashu},tag:{tag}"
+  
+actions:
+  - action_handle_businessAbountInsurance
+  - action_restart
+  - action_handle_choose
+  - action_resetSlot
+slots:
+  orderNumber:
+    type: text
+    influence_conversation: flase
+    auto_fill: true
+  insurance:
+    type: text
+    influence_conversation: true
+    auto_fill: true
+  business:
+    type: text
+    influence_conversation: true
+    auto_fill: true
+  tag:
+    type: text
+    influence_conversation: true
+    auto_fill: true
+  huashu:
+    type: text
+    influence_conversation: flase
+    auto_fill: true
+  otherBusiness:
+    type: text
+    influence_conversation: flase
+    auto_fill: true
+  requested_slot:
+    type: categorical
+    values:
+      - insurance
+      - business
+    influence_conversation: true
+  # requested_slot:
+  #   type: text
+  #   influence_conversation: false
+
+
+forms:
+  business_form:
+    required_slots:
+      business:
+        - type: from_entity
+          entity: business
+      insurance:
+        - type: from_entity
+          entity: insurance
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

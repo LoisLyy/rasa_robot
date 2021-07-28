@@ -1,0 +1,56 @@
+version: "2.0"
+
+rules:
+
+- rule: 要求用户完善业务信息
+  steps:    
+    - intent: handle_business
+    - action: business_form
+    - active_loop: business_form
+    # - active_loop: null
+    # - action: action_handle_business
+    # - action: action_restart
+
+- rule: 判断客户的业务详情
+  condition:
+  - active_loop: business_form
+  steps:    
+    - action: business_form
+    - active_loop: null
+    - action: action_handle_businessAbountInsurance
+    - action: utter_to_ivr
+
+- rule: 客户要求再报一次话术
+  condition:
+  - active_loop: business_form
+  steps:    
+    - intent: repeat
+    - action: utter_ok
+    - action: business_form
+
+- rule: 结束某个业务后，重启对话
+  condition:
+  - slot_was_set:
+    - insurance: None
+    - business: None
+    - tag: "voice"
+  steps:    
+    - action: action_restart
+
+- rule: 结束某个业务后，重启对话1
+  condition:
+  - slot_was_set:
+    - insurance: None
+    - business: None
+    - tag: "transfer"
+  steps:    
+    - action: action_restart
+
+- rule: 结束某个业务后，重启对话2
+  condition:
+  - slot_was_set:
+    - insurance: None
+    - business: None
+    - tag: "sendMessage"
+  steps:    
+    - action: action_restart
