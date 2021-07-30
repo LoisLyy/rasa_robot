@@ -6,28 +6,177 @@ stories:
     - intent: enter_number
     - action: action_handle_choose
     - action: utter_to_ivr
+    - action: action_judge_tag
     # - action: action_resetSlot
 
 - story: 客户要求再说一遍
   steps: 
     - intent: repeat
+    - action: action_judge_ifEnd
     - action: utter_to_ivr
+    - action: action_judge_ifEnd2
 
 - story: 客户说等一下
   steps: 
     - intent: pause
     - action: utter_ok
     - intent: continue
+    - action: action_judge_ifEnd
     - action: utter_to_ivr
+    - action: action_judge_ifEnd2
 
-# - story: 该业务需要用户选择人工还是自助
-#   steps: 
-#     - intent: handle_business
-#     - action: business_form
-#     - active_loop: business_form
-#     - action: action_handle_businessAbountInsurance
-#     - action: utter_to_ivr
-#     - intent: enter_number
-#     - action: action_handle_choose
-#     - action: utter_to_ivr
-#     - action: action_restart
+- story: 客户不需要其他服务,结束对话
+  steps:
+    - intent: hangUp
+    - action: action_handle_objection
+    - action: utter_to_ivr
+    - action: action_restart
+
+- story: 异议处理
+  steps:
+    - intent: complain
+    - action: action_handle_objection
+    - action: utter_to_ivr
+    - action: action_judge_tag2
+
+- story: 异议处理
+  steps:
+    - intent: transfer
+    - action: action_handle_objection
+    - action: utter_to_ivr
+    - action: action_judge_tag2
+    
+- story: 异议处理
+  steps:
+    - intent: consult
+    - action: action_handle_objection
+    - action: utter_to_ivr
+    - action: action_judge_tag2
+
+- story: 异议处理
+  steps:
+    - intent: insure
+    - action: action_handle_objection
+    - action: utter_to_ivr
+    - action: action_judge_tag2
+
+- story: 异议处理
+  steps:
+    - intent: surrenderConsult1
+    - action: action_handle_objection
+    - action: utter_to_ivr
+    - action: action_judge_tag2
+
+- story: 异议处理
+  steps:
+    - intent: downloadBill
+    - action: action_handle_objection
+    - action: utter_to_ivr
+    - action: action_judge_tag2
+
+- story: 异议处理
+  steps:
+    - intent: claims
+    - action: action_handle_objection
+    - action: utter_to_ivr
+    - action: action_judge_tag2
+
+- story: 异议处理
+  steps:
+    - intent: tax
+    - action: action_handle_objection
+    - action: utter_to_ivr
+    - action: action_judge_tag2
+
+- story: 异议处理
+  steps:
+    - intent: healthInsurance
+    - action: action_handle_objection
+    - action: utter_to_ivr
+    - action: action_judge_tag2
+
+- story: 异议处理
+  steps:
+    - intent: others
+    - action: action_handle_objection
+    - action: utter_to_ivr
+    - action: action_judge_tag2
+
+- story: 异议处理
+  steps:
+    - intent: questionCompany
+    - action: action_handle_objection
+    - action: utter_to_ivr
+    - action: action_judge_tag2
+
+- story: 异议处理
+  steps:
+    - intent: questionRobot
+    - action: action_handle_objection
+    - action: utter_to_ivr
+    - action: action_judge_tag2
+
+- story: 异议处理
+  steps:
+    - intent: comeBack
+    - action: action_handle_objection
+    - action: utter_to_ivr
+    - action: action_judge_tag2
+
+- story: 异议处理
+  steps:
+    - intent: surrenderConsult2
+    - action: action_handle_objection
+    - action: utter_to_ivr
+    - action: action_judge_tag2
+
+- story: 异议处理
+  steps:
+    - intent: drawback
+    - action: action_handle_objection
+    - action: utter_to_ivr
+    - action: action_judge_tag2
+
+- story: 异议处理
+  steps:
+    - intent: fees
+    - action: action_handle_objection
+    - action: utter_to_ivr
+    - action: action_judge_tag2
+
+- story: 异议处理
+  steps:
+    - intent: downloadEBill
+    - action: action_handle_objection
+    - action: utter_to_ivr
+    - action: action_judge_tag2
+
+- story: 异议处理
+  steps:
+    - intent: license
+    - action: action_handle_objection
+    - action: utter_to_ivr
+    - action: action_judge_tag2
+
+- story: 异议处理
+  steps:
+    - intent: downloadId
+    - action: action_handle_objection
+    - action: utter_to_ivr
+    - action: action_judge_tag2
+
+- story: 异议处理
+  steps:
+    - intent: ep
+    - action: action_handle_objection
+    - action: utter_to_ivr
+    - action: action_judge_tag2
+
+- story: 异议处理
+  steps:
+    - intent: advanceRenewal
+    - action: action_handle_objection
+    - action: utter_to_ivr
+    - action: action_judge_tag2
+
+

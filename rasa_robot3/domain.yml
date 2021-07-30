@@ -5,27 +5,61 @@ intents:
   - unclear_insurance
   - affirm
   - deny
+  - enter_number
+  - repeat
   - pause
   - continue
-  - enter_number
+  - complain
+  - trransfer
+  - consult
+  - insure
+  - surrenderConsult1
+  - downloadBill
+  - claims
+  - tax
+  - healthInsurance
+  - others
+  - hangUp
+  - questionCompany
+  - questionRobot
+  - comeBack
+  - surrenderConsult2
+  - drawback
+  - fees
+  - downloadEBill
+  - license
+  - downloadId
+  - ep
+  - advanceRenewal
+  - unknownInsurance
 
 entities:
+  # 车险类型
   - insurance
+  # 业务类型
   - business
+  # 话术类型
   - tag
+  # 话术文本
   - huashu
+  # 话术所含具体业务，要返回给ivr
+  - businesstoIvr
+  # 除去当前业务的其他业务
   - otherBusiness
+  # 输入的数字
   - orderNumber
+  # 该值表示该业务流程是否已经完成
+  - ifEnd
 
 responses:
   utter_ok:
-    - text: "huashu:好的,tag:voice"
+    - text: "tag:voice;huashu:好的"
   utter_ask_insurance:
-    - text: "huashu:请问是车险{business}还是非车险{business}?,tag:voice" 
+    - text: "tag:voice;huashu:请问是车险{business}还是非车险{business}?" 
   utter_ask_business:
-    - text: "huashu:您想要办理哪种{insurance}业务呢，报案、救援、保单查询、进度查询或者是退保呢?,tag:voice" 
+    - text: "tag:voice;huashu:您想要办理哪种{insurance}业务呢，报案、救援、保单查询、进度查询或者是退保呢?" 
   utter_anything_else:
-    - text: "请问您还有别的问题需要查询的吗。您可以直接说出您要办理的业务，如{otherBusiness}等"
+    - text: "tag:voice;huashu:请问您还有别的问题需要查询的吗。您可以直接说出您要办理的业务，如{otherBusiness}等"
   utter_default:
     - text: "对不起，没听懂您在说什么？"
   utter_inform_pause:
@@ -41,13 +75,20 @@ responses:
   utter_choose_human:
     - text: "正在为您转接人工，请稍等"
   utter_to_ivr:
-    - text: "huashu:{huashu},tag:{tag}"
+    - text: "tag:{tag};huashu:{huashu};business:{businesstoIvr}"
   
 actions:
   - action_handle_businessAbountInsurance
   - action_restart
   - action_handle_choose
   - action_resetSlot
+  - action_handle_objection
+  - action_anything_else
+  - action_judge_tag
+  - action_judge_tag2
+  - action_judge_ifEnd
+  - action_judge_ifEnd2
+
 slots:
   orderNumber:
     type: text
@@ -70,6 +111,14 @@ slots:
     influence_conversation: flase
     auto_fill: true
   otherBusiness:
+    type: text
+    influence_conversation: flase
+    auto_fill: true
+  ifEnd:
+    type: text
+    influence_conversation: flase
+    auto_fill: true
+  businesstoIvr:
     type: text
     influence_conversation: flase
     auto_fill: true

@@ -1,0 +1,110 @@
+- story: 异议处理
+  steps:
+    - intent: complain
+    - action: action_handle_objection
+    - action: utter_to_ivr
+- story: 异议处理
+  steps:
+    - intent: trransfer
+    - action: action_handle_objection
+    - action: utter_to_ivr
+- story: 异议处理
+  steps:
+    - intent: consult
+    - action: action_handle_objection
+    - action: utter_to_ivr
+- story: 异议处理
+  steps:
+    - intent: insure
+    - action: action_handle_objection
+    - action: utter_to_ivr
+- story: 异议处理
+  steps:
+    - intent: surrenderConsult1
+    - action: action_handle_objection
+    - action: utter_to_ivr
+- story: 异议处理
+  steps:
+    - intent: downloadBill
+    - action: action_handle_objection
+    - action: utter_to_ivr
+- story: 异议处理
+  steps:
+    - intent: claims
+    - action: action_handle_objection
+    - action: utter_to_ivr
+- story: 异议处理
+  steps:
+    - intent: tax
+    - action: action_handle_objection
+    - action: utter_to_ivr
+- story: 异议处理
+  steps:
+    - intent: healthInsurance
+    - action: action_handle_objection
+    - action: utter_to_ivr
+- story: 异议处理
+  steps:
+    - intent: others
+    - action: action_handle_objection
+    - action: utter_to_ivr
+- story: 异议处理
+  steps:
+    - intent: hangUp
+    - action: action_handle_objection
+    - action: utter_to_ivr
+- story: 异议处理
+  steps:
+    - intent: questionCompany
+    - action: action_handle_objection
+    - action: utter_to_ivr
+- story: 异议处理
+  steps:
+    - intent: questionRobot
+    - action: action_handle_objection
+    - action: utter_to_ivr
+- story: 异议处理
+  steps:
+    - intent: comeBack
+    - action: action_handle_objection
+    - action: utter_to_ivr
+- story: 异议处理
+  steps:
+    - intent: surrenderConsult2
+    - action: action_handle_objection
+    - action: utter_to_ivr
+- story: 异议处理
+  steps:
+    - intent: drawback
+    - action: action_handle_objection
+    - action: utter_to_ivr
+- story: 异议处理
+  steps:
+    - intent: fees
+    - action: action_handle_objection
+    - action: utter_to_ivr
+- story: 异议处理
+  steps:
+    - intent: downloadEBill
+    - action: action_handle_objection
+    - action: utter_to_ivr
+- story: 异议处理
+  steps:
+    - intent: license
+    - action: action_handle_objection
+    - action: utter_to_ivr
+- story: 异议处理
+  steps:
+    - intent: downloadId
+    - action: action_handle_objection
+    - action: utter_to_ivr
+- story: 异议处理
+  steps:
+    - intent: ep
+    - action: action_handle_objection
+    - action: utter_to_ivr
+- story: 异议处理
+  steps:
+    - intent: advanceRenewal
+    - action: action_handle_objection
+    - action: utter_to_ivr
