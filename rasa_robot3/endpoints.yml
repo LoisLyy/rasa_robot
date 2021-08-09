@@ -35,8 +35,11 @@ action_endpoint:
 # Event broker which all conversation events should be streamed to.
 # https://rasa.com/docs/rasa/event-brokers
 
-#event_broker:
-#  url: localhost
-#  username: username
-#  password: password
-#  queue: queue
+event_broker:
+  type: "pika"
+  url: 172.16.200.231
+  port: 5672
+  username: "user"
+  # password: RyLZ3gizohJN6FGWbPM4
+  password: "wellcloud"
+  queue: "rasa_production_events"

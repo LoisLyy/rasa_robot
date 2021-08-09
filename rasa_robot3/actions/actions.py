@@ -46,7 +46,7 @@ filename="huashu.json"
 businessList=["报案","救援","保单信息查询","理赔进度查询","退保"]
 with open(filename,"r",encoding="utf-8") as f:
     jsonText=json.loads(f.read().splitlines()[0])
-# 根据业务和车险类型选择话术和标签
+# 根据业务和车险类型选择话术和标签(正常的业务类型)
 class ActionactionHandleBusinessAbountInsurance(Action):    
     def name(self) -> Text:
         return "action_handle_businessAbountInsurance"

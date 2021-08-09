@@ -25,16 +25,21 @@ pipeline:
 #     threshold: 0.3
 #     ambiguity_threshold: 0.1
   - name: "MitieNLP"
+    # model: "data/total_word_feature_extractor_zh.dat"
     model: "data/total_word_feature_extractor.dat"
   - name: "JiebaTokenizer"
+    dictionary_path: "data/dict.txt"
   - name: "RegexFeaturizer"
+    use_word_boundaries: False
   - name: "RegexEntityExtractor"
+    use_word_boundaries: False
   - name: "MitieFeaturizer"
   - name: "SklearnIntentClassifier"
   - name: DIETClassifier
+    # intent_classification: false
     epochs: 100
   - name: FallbackClassifier
-    # threshold: 0.3
+    threshold: 0.0001
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
 policies:

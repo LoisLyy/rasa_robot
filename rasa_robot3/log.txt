@@ -1,0 +1,55 @@
+2021-08-05 10:41:36,841 [INFO ]  Starting Rasa server on http://localhost:5005
+2021-08-05 10:41:36,856 [INFO ]  Loading model models/20210804-090419.tar.gz...
+2021-08-05 10:41:37,991 [INFO ]  Loading model models/20210804-090419.tar.gz...
+2021-08-05 10:41:41,182 [INFO ]  Added 'MitieNLP' to component cache. Key 'MitieNLP-/mnt/data/home/test/rasa01/rasa_robot3/data/total_word_feature_extractor_zh.dat'.
+2021-08-05 10:41:51,752 [ERROR]  Experienced exception while trying to serve
+Traceback (most recent call last):
+  File "/mnt/data/home/test/.pyenv/versions/miniconda3-4.3.30/lib/python3.6/site-packages/rasa/core/brokers/pika.py", line 78, in __init__
+    self.port = int(port)
+ValueError: invalid literal for int() with base 10: '5672:32231'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/data/home/test/.pyenv/versions/miniconda3-4.3.30/lib/python3.6/site-packages/sanic/app.py", line 1111, in run
+    serve(**server_settings)
+  File "/mnt/data/home/test/.pyenv/versions/miniconda3-4.3.30/lib/python3.6/site-packages/sanic/server.py", line 888, in serve
+    trigger_events(before_start, loop)
+  File "/mnt/data/home/test/.pyenv/versions/miniconda3-4.3.30/lib/python3.6/site-packages/sanic/server.py", line 696, in trigger_events
+    loop.run_until_complete(result)
+  File "uvloop/loop.pyx", line 1456, in uvloop.loop.Loop.run_until_complete
+  File "/mnt/data/home/test/.pyenv/versions/miniconda3-4.3.30/lib/python3.6/site-packages/rasa/core/run.py", line 253, in load_agent_on_start
+    _broker = await EventBroker.create(endpoints.event_broker, loop=loop)
+  File "/mnt/data/home/test/.pyenv/versions/miniconda3-4.3.30/lib/python3.6/site-packages/rasa/core/brokers/broker.py", line 32, in create
+    return await _create_from_endpoint_config(obj, loop)
+  File "/mnt/data/home/test/.pyenv/versions/miniconda3-4.3.30/lib/python3.6/site-packages/rasa/core/brokers/broker.py", line 88, in _create_from_endpoint_config
+    broker = await PikaEventBroker.from_endpoint_config(endpoint_config, event_loop)
+  File "/mnt/data/home/test/.pyenv/versions/miniconda3-4.3.30/lib/python3.6/site-packages/rasa/core/brokers/pika.py", line 147, in from_endpoint_config
+    broker = cls(broker_config.url, **broker_config.kwargs, event_loop=event_loop)
+  File "/mnt/data/home/test/.pyenv/versions/miniconda3-4.3.30/lib/python3.6/site-packages/rasa/core/brokers/pika.py", line 80, in __init__
+    raise RasaException("Port could not be converted to integer.") from e
+rasa.shared.exceptions.RasaException: Port could not be converted to integer.
+2021-08-05 10:42:08,494 [INFO ]  Starting Rasa server on http://localhost:5005
+2021-08-05 10:42:08,509 [INFO ]  Loading model models/20210804-090419.tar.gz...
+2021-08-05 10:42:09,573 [INFO ]  Loading model models/20210804-090419.tar.gz...
+2021-08-05 10:42:12,767 [INFO ]  Added 'MitieNLP' to component cache. Key 'MitieNLP-/mnt/data/home/test/rasa01/rasa_robot3/data/total_word_feature_extractor_zh.dat'.
+2021-08-05 10:42:23,387 [INFO ]  Connecting to RabbitMQ ...
+2021-08-05 11:21:06,249 [ERROR]  Experienced exception while trying to serve
+Traceback (most recent call last):
+  File "/mnt/data/home/test/.pyenv/versions/miniconda3-4.3.30/lib/python3.6/site-packages/sanic/app.py", line 1111, in run
+    serve(**server_settings)
+  File "/mnt/data/home/test/.pyenv/versions/miniconda3-4.3.30/lib/python3.6/site-packages/sanic/server.py", line 888, in serve
+    trigger_events(before_start, loop)
+  File "/mnt/data/home/test/.pyenv/versions/miniconda3-4.3.30/lib/python3.6/site-packages/sanic/server.py", line 696, in trigger_events
+    loop.run_until_complete(result)
+  File "uvloop/loop.pyx", line 1450, in uvloop.loop.Loop.run_until_complete
+  File "uvloop/loop.pyx", line 1443, in uvloop.loop.Loop.run_until_complete
+  File "uvloop/loop.pyx", line 1351, in uvloop.loop.Loop.run_forever
+  File "uvloop/loop.pyx", line 519, in uvloop.loop.Loop._run
+  File "uvloop/handles/poll.pyx", line 213, in uvloop.loop.__on_uvpoll_event
+  File "uvloop/cbhandles.pyx", line 90, in uvloop.loop.Handle._run
+  File "uvloop/cbhandles.pyx", line 73, in uvloop.loop.Handle._run
+  File "uvloop/loop.pyx", line 359, in uvloop.loop.Loop._read_from_self
+  File "uvloop/loop.pyx", line 364, in uvloop.loop.Loop._invoke_signals
+  File "uvloop/loop.pyx", line 339, in uvloop.loop.Loop._ceval_process_signals
+KeyboardInterrupt

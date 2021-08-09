@@ -2,24 +2,24 @@ version: "2.0"
 
 rules:
 
-- rule: 要求用户完善业务信息
-  steps:    
-    - intent: handle_business
-    - action: business_form
-    - active_loop: business_form
-    # - active_loop: null
-    # - action: action_handle_business
-    # - action: action_restart
+# - rule: 要求用户完善业务信息
+#   steps:    
+#     - intent: handle_business
+#     - action: business_form
+#     - active_loop: business_form
+#     # - active_loop: null
+#     # - action: action_handle_business
+#     # - action: action_restart
 
-- rule: 判断客户的业务详情
-  condition:
-  - active_loop: business_form
-  steps:    
-    - action: business_form
-    - active_loop: null
-    - action: action_handle_businessAbountInsurance
-    - action: utter_to_ivr
-    - action: action_judge_tag
+# - rule: 判断客户的业务详情
+#   condition:
+#   - active_loop: business_form
+#   steps:    
+#     - action: business_form
+#     - active_loop: null
+#     - action: action_handle_businessAbountInsurance
+#     - action: utter_to_ivr
+#     - action: action_judge_tag
 
 # - rule: 用户不知道要查询的险种
 #   condition:
@@ -30,14 +30,32 @@ rules:
 #     - action: utter_to_ivr
 #     - action: action_judge_tag
 
-- rule: 客户要求再报一次话术
-  condition:
-  - active_loop: business_form
-  steps:    
-    - intent: repeat
-    - action: utter_ok
-    - action: business_form
+# - rule: 客户要求再报一次话术
+#   condition:
+#   - active_loop: business_form
+#   steps:    
+#     - intent: repeat
+#     - action: utter_ok
+#     - action: business_form
+- rule: 客户要求再说一遍
+  steps: 
+    - intent: A15重复
+    - action: action_judge_ifEnd
+    - action: utter_to_ivr
+    - action: action_judge_ifEnd2
 
+
+- rule: 客户说等一下——第一步
+  steps: 
+    - intent: A16客户打断
+    - action: utter_ok
+
+- rule: 客户说等一下——第二步
+  steps: 
+    - intent: A17继续
+    - action: action_judge_ifEnd
+    - action: utter_to_ivr
+    - action: action_judge_ifEnd2
 # - rule: 结束某个业务后，重启对话
 #   condition:
 #   - slot_was_set:
